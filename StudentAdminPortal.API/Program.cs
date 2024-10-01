@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using StudentAdminPortal.API.DataModels;
+using StudentAdminPortal.API.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,8 @@ builder.Services.AddDbContext<StudentAdminContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("StudentAdminPortalDb"));
 });
+
+builder.Services.AddScoped<IStudentRepository, SqlStudentRepository>();
 
 var app = builder.Build();
 
