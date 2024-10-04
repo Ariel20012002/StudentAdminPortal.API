@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace StudentAdminPortal.API.DataModels
+﻿namespace StudentAdminPortal.API.DataModels
 {
     public class Student
     {

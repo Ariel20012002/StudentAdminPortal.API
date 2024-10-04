@@ -2,6 +2,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using StudentAdminPortal.API.DataModels;
 using StudentAdminPortal.API.Repositories;
+using Microsoft.Extensions.DependencyInjection;
+using StudentAdminPortal.API.Profiles;
+using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +22,8 @@ builder.Services.AddDbContext<StudentAdminContext>(options =>
 });
 
 builder.Services.AddScoped<IStudentRepository, SqlStudentRepository>();
+
+builder.Services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 
 var app = builder.Build();
 
