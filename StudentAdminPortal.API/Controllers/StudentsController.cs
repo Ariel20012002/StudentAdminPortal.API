@@ -24,5 +24,17 @@ namespace StudentAdminPortal.API.Controllers
 
             return Ok(mapper.Map<List<Student>>(students));
         }
+
+        [HttpGet]
+        [Route("[controller]/{studentId:guid}")]
+
+        /*
+        public async Task<IActionResult> GetStudentAsync()
+        {
+            // Fetch Student Details
+
+            // Return Student
+        }
+        */
     }
 }
