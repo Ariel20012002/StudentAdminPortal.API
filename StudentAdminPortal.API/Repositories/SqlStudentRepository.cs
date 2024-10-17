@@ -70,9 +70,11 @@ namespace StudentAdminPortal.API.Repositories
             return null;
         }
 
-        public Task<Student> AddStudent(Student request)
+        public async Task<Student> AddStudent(Student request)
         {
-            throw new NotImplementedException();
+            var student = await context.Student.AddAsync(request);
+            await context.SaveChangesAsync();
+            return student.Entity;
         }
     }
 }
