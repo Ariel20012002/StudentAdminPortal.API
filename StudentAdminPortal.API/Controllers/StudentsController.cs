@@ -70,5 +70,14 @@ namespace StudentAdminPortal.API.Controllers
             }
             return NotFound();
         }
+
+        /*
+        [HttpPost]
+        [Route("[controller]/Add")]
+        public async Task<IActionResult> AddStudentAsync([FromBody] AddStudentRequest request)
+        {
+
+        }
+        */
     }
 }

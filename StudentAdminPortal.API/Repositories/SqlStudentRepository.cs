@@ -69,5 +69,10 @@ namespace StudentAdminPortal.API.Repositories
 
             return null;
         }
+
+        public Task<Student> AddStudent(Student request)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
