@@ -5,6 +5,7 @@ using StudentAdminPortal.API.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 using StudentAdminPortal.API.Profiles;
 using AutoMapper;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -47,6 +48,12 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(Path.Combine(builder.Environment.ContentRootPath, "Resources")),
+    RequestPath = "/Resources"
+});
 
 app.UseCors("angularApplication");
 
