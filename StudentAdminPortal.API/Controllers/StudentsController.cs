@@ -88,6 +88,7 @@ namespace StudentAdminPortal.API.Controllers
         [Route("[controller]/{studentId:guid}/upload-image")]
         public async Task<IActionResult> UploadImage([FromRoute] Guid studentId, IFormFile profileImage)
         {
+            // Extensiones Validas
             var validExtensions = new List<string>
             {
                 ".jpeg",
