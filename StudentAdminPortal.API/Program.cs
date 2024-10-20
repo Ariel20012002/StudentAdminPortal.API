@@ -6,6 +6,9 @@ using Microsoft.Extensions.DependencyInjection;
 using StudentAdminPortal.API.Profiles;
 using AutoMapper;
 using Microsoft.Extensions.FileProviders;
+using FluentValidation.AspNetCore;
+using FluentValidation;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +26,15 @@ builder.Services.AddCors((options) =>
 // Add services to the container.
 
 builder.Services.AddControllers();
+//builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+builder.Services.AddControllers()
+                .AddFluentValidation(options =>
+                {
+                    // Automatic registration of validators in assembly
+                    options.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+                });
+
+builder.Services.AddFluentValidationAutoValidation();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
