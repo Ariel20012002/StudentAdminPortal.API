@@ -94,7 +94,9 @@ namespace StudentAdminPortal.API.Controllers
                 ".jpeg",
                 ".png",
                 ".gif",
-                ".jpg"
+                ".jpg",
+                ".PNG",
+                ".JPG"
             };
 
             if (profileImage != null && profileImage.Length > 0)
